@@ -30,4 +30,8 @@ class Startup
         self.all.map{|startup| startup.domain}
     end
 
+    def sign_contract(vc, type, investment)
+        FundingRound.new(self, vc, type, investment)
+    end
+
 end

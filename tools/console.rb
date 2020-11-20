@@ -9,5 +9,13 @@ end
 s1 = Startup.new("Spotify", "Daniel Ek", "Domain1")
 s2 = Startup.new("Flatiron", "Ix", "Domain2")
 s3 = Startup.new("Instagram", "Adam", "Domain3")
+
+vc1 = VentureCapitalist.new("Matt Cohler", 1000000000)
+vc2 = VentureCapitalist.new("Rebecca Lynn", 50000000000)
+vc3 = VentureCapitalist.new("David Pakman", 8000000)
+
+fr1 = FundingRound.new("Spotify", "Matt Cohler", "Angel", 30000)
+fr2 = FundingRound.new("Flatiron", "David Pakman", "Seed", 10000000)
+
 binding.pry
 0 #leave this here to ensure binding.pry isn't the last line
