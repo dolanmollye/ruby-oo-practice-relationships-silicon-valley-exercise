@@ -47,12 +47,18 @@ class Startup
     end
 
     def investors
-        FundingRound.all.select{|round| round.startup == self}.map{|vent_cap| vent_cap.vc.name}.uniq
+        num_funding_rounds.map{|vent_cap| vent_cap.vc.name}.uniq
     end
 
     def big_investors
         FundingRound.all.select{|round| round.startup == self}.map{|vent_cap| vent_cap.vc}.reject{|not_club| not_club.total_worth < 1000000000}.uniq.map{|big_vc| big_vc.name}
+    
+        #investors.select{|investor| investor.tres_commas_club}
     end
+
+    # def self.tres_commas_club
+    #     self.all.select{|cap| cap.total_worth >= 1000000000}
+    # end
 
 
 end
