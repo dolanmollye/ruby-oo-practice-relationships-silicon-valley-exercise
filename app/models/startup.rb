@@ -34,4 +34,25 @@ class Startup
         FundingRound.new(self, vc, type, investment)
     end
 
+    def num_funding_rounds
+        FundingRound.all.select{|round| round.startup == self}
+    end
+
+    def total_funds
+        total_sum = 0
+        FundingRound.all.each do |funding|
+            total_sum += funding.investment
+        end
+        total_sum
+    end
+
+    def investors
+        FundingRound.all.select{|round| round.startup == self}.map{|vent_cap| vent_cap.vc.name}.uniq
+    end
+
+    def big_investors
+        FundingRound.all.select{|round| round.startup == self}.map{|vent_cap| vent_cap.vc}.reject{|not_club| not_club.total_worth < 1000000000}.uniq.map{|big_vc| big_vc.name}
+    end
+
+
 end
